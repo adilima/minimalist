@@ -8,10 +8,11 @@ aapt.exe package -v -f -M AndroidManifest.xml -I %ANDROID_HOME%\platforms\androi
 jack.jar --classpath %ANDROID_HOME%\platforms\android-23\android.jar --output-dex bin src gen 
 
 echo "Packing APK"
-aapt.exe package -v -f -M AndroidManifest.xml -I %ANDROID_HOME%\platforms\android-23\android.jar -S res -F bin\Personal.apk
+aapt.exe package -v -f -M AndroidManifest.xml -I %ANDROID_HOME%\platforms\android-23\android.jar -S res -A assets -F bin\Personal.apk
 
 echo "Merge the dex"
 cd bin
 aapt.exe add Personal.apk classes.dex
 
+cd ..
 echo "Done."
