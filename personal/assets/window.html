@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang='id'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/css/bootstrap.min.css">
+  <script src="styles/js/bootstrap.min.js"></script>
+  <script src="js/android.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#home">Home</a></li>
+    <li><a data-toggle="pill" href="posting-articles.html">Articles</a></li>
+    <li><a data-toggle="pill" href="#menu2">About Wacana</a></li>
+    <li><a data-toggle="pill" href="#menu3">Menu 3</a></li>
+  </ul>
+  
+  <div class="tab-content">
+   <div id="home" class="tab-pane fade in active">
+      <h3>Cara Sederhana Untuk Mengelola Database</h3>
+      <p>
+        Untuk sementara halaman ini dipakai untuk test eksekusi SQL.
+      </p>
+    </div>
+
+    <div id="menu1" class="tab-pane fade">
+      <h3>Menu 1</h3>
+      <p></p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>About Wacana</h3>
+      <p>
+      </p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p></p>
+    </div>
+  </div>
+
+  <h2>SQL Statement</h2>
+  <div class="panel panel-default">
+      <div class="panel-body">
+        <form action="index.php" method="post">
+          <div class="form-group">
+            <textarea class="form-control" rows="5" id="sql_statement" name="sql_statement"></textarea>
+          </div>
+          <button type="button" class="btn btn-default">Execute</button>
+        </form>
+      </div>
+  </div>
+  <h2>SQL Results</h2>
+  <div class="panel panel-default">
+      <div class="panel-body" id="sqlresults">
+      </div>
+  </div>
+</div>
+
+
+</body>
+</html>
