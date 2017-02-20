@@ -1,0 +1,3 @@
+2017-02-20 01:29:21
+Adding -A switch into aapt call on Windows, this will enable adding assets directory into the resulting APK.
+

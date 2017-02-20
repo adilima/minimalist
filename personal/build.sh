@@ -1,14 +1,9 @@
-#!/system/bin/sh -e 
-#
-# These are going to change, we'll be using jack.jar not dx and ecj 
-# This script will only usable inside android-x86, not regular linux 
-# TODO: Change this file and commit the changes from inside android-x86 
+#!/system/bin/sh -e
 #
 # create R.java
-#
 aapt package -v -f \
              -M ./AndroidManifest.xml \
-             -I $PREFIX/../home/android.jar \
+             -I $PREFIX/share/aapt/android.jar \
              -J src \
              -S res \
              -m
@@ -21,27 +16,39 @@ aapt package -v -f \
 #        --import [path/to/import/lib/*.jar \
 #        --output-dex bin/ \
 #        src/ gen/
-#
 # And then, no more using dx to produce classes.dex
 
+#####################################################################
+#
+#ecj -d ./obj -classpath $HOME/../usr/share/java/android.jar \
+#	     -sourcepath ./src $(find src -type f -name "*.java")
+#
+#dx --dex --verbose --output=./bin/classes.dex ./obj
 
-ecj -d ./obj -classpath $PREFIX/../home/android.jar \
-             -sourcepath ./src
-
-
-
-dx --dex --verbose --output=./bin/classes.dex ./obj
-
-
+jack --classpath $PREFIX/share/java/android.jar \
+	--output-dex bin/ \
+	src/ gen/
 
 # make the apk
 
 aapt package -v -f \
              -M ./AndroidManifest.xml \
              -S ./res \
-             -F ./bin/MiniTest.apk
+	     -A ./assets \
+             -F bin/Personal.apk
+
 
 # add the classes.dex to the apk
+cd bin
+aapt add -f Personal.apk classes.dex
 
-aapt add -f MiniTest.apk bin/classes.dex
+echo "sign the apk"
+apksigner -p eveline ../personal-debug.key Personal.apk ../Personal.apk
+
+cd ..
+echo "and make it accessible to the outside world"
+chmod 777 Personal.apk
+
+echo "Our personal site is ready to go"
+echo
 

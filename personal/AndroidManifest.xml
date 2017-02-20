@@ -4,7 +4,15 @@
       android:versionCode="1"
       android:versionName="1.0">
     
-    <application android:label="PersonalSite">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <supports-screens android:resizeable="true"
+                      android:xlargeScreens="true"/>
+
+    <application android:icon="@drawable/ic_launcher"
+		 android:label="Personal Site">
         <activity android:name="es.hol.xaverius2017.personal.MainActivity"
                   android:label="Personal">
             <intent-filter>
