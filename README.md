@@ -58,3 +58,8 @@ jarsigner -verbose -sigalg SHA1withRSA \
 
 ```
 
+## About Editor In Android-x86
+
+Unfortunately, Cloud9 editor from CDN does not work on Android-x86, the reason is still unknown.
+It should not need running HTTP server, but it's just does not work. The same HTML containing the editor
+but hosted on Netlify works.
