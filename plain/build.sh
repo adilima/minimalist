@@ -28,8 +28,10 @@ aapt package -v -f \
 # We should use plain javac instead of ecj.
 #########################################################
 
+sources=$(find src -name *.java)
+
 javac -d ./obj -classpath $HOME/share/android.jar \
-    -sourcepath ./src
+    -sourcepath ./src ${sources}
 
 dx --dex --verbose --output=./bin/classes.dex ./obj
 
