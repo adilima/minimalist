@@ -25,25 +25,36 @@ but I'd like to make this work using simple `jarsigner` command as follow:
 
 # 1. create new keystore 
 
-keytool -genkey -alias mydomain -keyalg RSA -keystore KeyStore.jks -keysize 2048 
+keytool -genkey \
+        -alias mydomain \
+        -keyalg RSA \
+        -keystore KeyStore.jks \
+        -keysize 2048 
 
 # or
 
-keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
-
+keytool -genkey -v \
+        -keystore my-release-key.keystore \
+        -alias alias_name \
+        -keyalg RSA \
+        -keysize 2048 \
+        -validity 10000
 
 # Then create cert CSR based on the new keystore
 keytool -certreq -alias mydomain -keystore KeyStore.jks -file mydomain.csr
 
-# Then sign the apk
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore
-my_application.apk alias_name
 
 # Finally, sign the APK
 jarsigner -verbose -keystore PATH/TO/YOUR_RELEASE_KEY.keystore \
           -storepass YOUR_STORE_PASS \
           -keypass YOUR_KEY_PASS PATH/TO/YOUR_UNSIGNED_PROJECT.apk \
           YOUR_ALIAS_NAME
+
+# Or sign using RSA, which is less common, I guess
+jarsigner -verbose -sigalg SHA1withRSA \
+          -digestalg SHA1 \
+          -keystore my-release-key.keystore \
+          my_application.apk alias_name
 
 ```
 
