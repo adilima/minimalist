@@ -1,13 +1,14 @@
 
-# create R.java
+# Create R.java
+# We need at least 1 copy of android.jar
+# This example is using termux,
+# so you better adjust the path as needed.
 aapt package -v -f \
-             -M ./AndroidManifest.xml 
-\
+             -M ./AndroidManifest.xml \
              -I $PREFIX/../home/android.jar \
              -J src \
              -S res \
              -m
-
 
 # compile the java sources
 # THIS EXAMPLE USING ecj, and we should find out which version
@@ -16,17 +17,15 @@ aapt package -v -f \
 #        --import [path/to/import/lib/*.jar \
 #        --output-dex bin/ \
 #        src/ gen/
-# And then, no more using dx to produce classes.dex
-
-
-ecj -d ./obj -classpath $PREFIX/../home/android.jar \
-             -sourcepath ./src
-
-
+# And then, no more using dx to produce classes.dex
+#
+# If using ecj:
+#
+# ecj -d ./obj -classpath $PREFIX/../home/android.jar \
+#     -sourcepath ./src
+#########################################################
 
 dx --dex --verbose --output=./bin/classes.dex ./obj
-
-
 
 # make the apk
 
@@ -35,9 +34,6 @@ aapt package -v -f \
              -S ./res \
              -F ./bin/MiniTest.apk
 
-
-
 # add the classes.dex to the apk
-
 aapt add -f MiniTest.apk bin/classes.dex
 
