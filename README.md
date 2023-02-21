@@ -1,6 +1,6 @@
 # Minimalist
 
-a minimal set of file needed to create android project
+A minimal set of file needed to create android project
 
 ## Purpose
 
