@@ -10,5 +10,6 @@ Because I'll be using Android-x86 to compile and test, and thus learn more about
 # Added a branch - IOTest
 Started as a test for reading and writing to files, this one ends up with interesting writing HTML and preview it in a WebView.
 
-![With little works we can make a simple HTML editor](TMPDOODLE1488071147848.jpg)
+![With little works we can make a simple HTML editor](Screenshots/TMPDOODLE1488071147848.jpg)
+
 
