@@ -23,7 +23,13 @@ aapt package -v -f \
 #
 # ecj -d ./obj -classpath $PREFIX/../home/android.jar \
 #     -sourcepath ./src
+#
+# Note:
+# We should use plain javac instead of ecj.
 #########################################################
+
+javac -d ./obj -classpath $HOME/share/android.jar \
+    -sourcepath ./src
 
 dx --dex --verbose --output=./bin/classes.dex ./obj
 
