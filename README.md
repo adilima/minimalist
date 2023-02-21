@@ -17,7 +17,7 @@ Started as a test for reading and writing to files, this one ends up with intere
 
 ### Example To Sign APK
 
-My old scripts `build.sh` use `apksigner`, which is only available if you use `termux`,
+My old script `build.sh` use `apksigner`, which is only available if you use `termux`,
 but I'd like to make this work using simple `jarsigner` command as follow:
 
 
