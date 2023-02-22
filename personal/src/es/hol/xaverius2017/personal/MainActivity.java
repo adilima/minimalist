@@ -14,6 +14,7 @@ public class MainActivity extends Activity {
         @Override
         public void onCreate(Bundle savedInstanceBundle) {
                 super.onCreate(savedInstanceBundle);
+		getWindow().requestFeature(Window.FEATURE_NO_TITLE);
                 //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		// WebView webView = (WebView)R.layout.main;
                 //setContentView(webView);
