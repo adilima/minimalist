@@ -76,7 +76,14 @@ public class IOTest extends Activity {
 
 	void runHTMLIntent() {
 		TextView et = (TextView)findViewById(R.id.textInput);
-		String strTest = et.getText().toString();
+		String strHTML = "<!DOCTYPE html>\n<html><head><meta charset=\"utf-8\">" +
+			"<meta name=\"viewport\" content=\"width=device-width, initial-scale=\"1\">" +
+			"<title>Simple HTML Content</title>" +
+			"<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\"></head>" +
+			"<body>";
+		
+		String strTest = strHTML + et.getText().toString();
+		strTest += "</body></html>";
 		WebView wv = new WebView(this);
 		LinearLayout root = (LinearLayout)findViewById(R.id.root_layout);
 		wv.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
