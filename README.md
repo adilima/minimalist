@@ -58,8 +58,8 @@ jarsigner -verbose -sigalg SHA1withRSA \
 
 ```
 
-## About Editor In Android-x86
+## Using Ace Editor
 
-Unfortunately, Cloud9 editor from CDN does not work on Android-x86, the reason is still unknown.
-It should not need running HTTP server, but it's just does not work. The same HTML containing the editor
-but hosted on Netlify works.
+To conveniently editing text files on Android, we can use `Ace Editor`, or any WebView based editor,
+this is more convenient than using _hard to use_ default editor on Android-x86.
+
