@@ -13,7 +13,7 @@ import android.widget.LinearLayout.LayoutParams;
 
 
 public class IOTest extends Activity {
-	@Override
+    @Override
 	public void onCreate(Bundle savedInstanceBundle) {
 		super.onCreate(savedInstanceBundle);
 		setContentView(R.layout.main);
