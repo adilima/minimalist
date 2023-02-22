@@ -14,9 +14,9 @@ import android.widget.LinearLayout.LayoutParams;
 
 public class IOTest extends Activity {
 	@Override
-        public void onCreate(Bundle savedInstanceBundle) {
+	public void onCreate(Bundle savedInstanceBundle) {
 		super.onCreate(savedInstanceBundle);
-                setContentView(R.layout.main);
+		setContentView(R.layout.main);
 		Button btn = (Button)findViewById(R.id.btnWrite);
 		btn.setOnClickListener(new View.OnClickListener() {
 			@Override
