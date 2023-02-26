@@ -63,3 +63,8 @@ jarsigner -verbose -sigalg SHA1withRSA \
 To conveniently editing text files on Android, we can use `Ace Editor`, or any WebView based editor,
 this is more convenient than using _hard to use_ default editor on Android-x86.
 
+
+### Testing
+
+Small test for Android-x86 to push into this repo.
+
