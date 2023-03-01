@@ -1,9 +1,12 @@
 #!/system/bin/sh -e
 #
 # create R.java
+
+ANDROID_PACKAGE=$HOME/share/android-23.jar
+
 aapt package -v -f \
              -M ./AndroidManifest.xml \
-             -I $PREFIX/share/aapt/android.jar \
+             -I ${ANDROID_PACKAGE} \
              -J src \
              -S res \
              -m
@@ -25,29 +28,44 @@ aapt package -v -f \
 #
 #dx --dex --verbose --output=./bin/classes.dex ./obj
 
-jack --classpath $PREFIX/share/java/android.jar \
-	--output-dex bin/ \
-	src/ gen/
+SOURCES=$(find src -name *.java)
+javac --release 8 -cp ${ANDROID_PACKAGE} \
+	-d obj \
+        -sourcepath src \
+	${SOURCES}
+
+dx --dex --output=classes.dex obj/
 
 # make the apk
 
 aapt package -v -f \
              -M ./AndroidManifest.xml \
+             -I ${ANDROID_PACKAGE} \
              -S ./res \
 	     -A ./assets \
-             -F bin/Personal.apk
+             -F Personal.apk
 
 
 # add the classes.dex to the apk
-cd bin
 aapt add -f Personal.apk classes.dex
 
 echo "sign the apk"
-apksigner -p eveline ../personal-debug.key Personal.apk ../Personal.apk
+if ! [ -f personal.keystore ]; then
 
-cd ..
-echo "and make it accessible to the outside world"
-chmod 777 Personal.apk
+    keytool -genkey -v \
+        -keystore personal.keystore \
+        -alias Personal \
+        -keyalg RSA \
+        -keysize 2048 \
+        -validity 10000
+
+fi
+
+jarsigner -verbose -sigalg SHA1withRSA \
+          -digestalg SHA1 \
+          -keystore personal.keystore \
+          Personal.apk personal
+
 
 echo "Our personal site is ready to go"
 echo

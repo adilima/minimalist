@@ -1,0 +1,30 @@
+{
+  "name": "memanah-rajawali-react",
+  "version": "1.0.0",
+  "description": "Buku Memanah Rajawali Versi React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adilima/sdyxz.git"
+  },
+  "keywords": [
+    "memanah-rajawali",
+    "novel",
+    "reactjs",
+    "nodejs",
+    "android-x86"
+  ],
+  "author": "FX. Adi Lima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adilima/sdyxz/issues"
+  },
+  "homepage": "https://github.com/adilima/sdyxz#readme",
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

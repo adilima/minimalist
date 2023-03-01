@@ -9,3 +9,12 @@ function doMarkdown() {
     document.getElementById('preview').innerHTML = html;
 }
 
+function showBook(path) {
+    let str1 = Personal.loadMarkdown(path);
+    let html = marked.parse(str1, {
+        gfm: true
+    });
+    document.getElementById('preview').innerHTML = html;
+}
+
+
