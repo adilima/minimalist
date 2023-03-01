@@ -2,3 +2,7 @@ personal-debug.key
 *.apk
 *.class
 *.dex
+*.keystore
+
+old/
+
